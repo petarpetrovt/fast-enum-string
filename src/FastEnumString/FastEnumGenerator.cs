@@ -93,8 +93,7 @@ $@"namespace {enumSymbol.ContainingNamespace.ToDisplayString()}
 			{{
 {string.Join(Environment.NewLine, switchCases)}
 				default:
-					return null;
-					//throw new System.ArgumentException($""{enumSymbol.Name} value `{{value}}` is not supported in this context."", nameof(value));
+					throw new System.ArgumentException($""{enumSymbol.Name} value `{{value}}` is not supported in this context."", nameof(value));
 			}}
 		}}
 	}}
