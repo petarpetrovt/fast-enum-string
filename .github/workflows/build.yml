@@ -39,7 +39,7 @@ jobs:
        uses: actions/setup-dotnet@v1.8.1
 
      - name: Publish tests
-       run: dotnet publish "test/FastEnumString.Tests/FastEnumString.Tests.csproj" -o ".deploy/FastEnumString.Tests" -c "Release"
+       run: dotnet publish "test/FastEnumString.Tests/FastEnumString.Tests.csproj" -o ".deploy/FastEnumString.Tests" -c "Release" -f "net6.0"
 
      - name: Run tests with code coverage
        if: ${{ matrix.options.codecov }}
