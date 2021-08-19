@@ -2,10 +2,9 @@
 {
 	using BenchmarkDotNet.Attributes;
 
-	[MemoryDiagnoser, MarkdownExporter]
+	[MemoryDiagnoser, MarkdownExporter, DisassemblyDiagnoser(exportHtml: true)]
 	public class FastEnumStringBenchmark
 	{
-		[Params(TestEnum.Test1)]
 		public TestEnum Value { get; set; }
 
 		[Benchmark]

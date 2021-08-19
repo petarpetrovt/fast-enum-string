@@ -1,6 +1,5 @@
 ﻿<h1>
-<img src="/icon.png" alt="fast-enum-string" width="64"/>
-FastEnumString
+fast-enum-string
 </h1>
 <p align="left">
     <a href="https://github.com/petarpetrovt/fast-enum-string/actions?query=workflow%3ABuild" alt="Build and test">
@@ -68,10 +67,10 @@ AMD Ryzen 7 3700X, 1 CPU, 16 logical and 8 physical cores
 
 
 ```
-|           Method | Value |       Mean |     Error |    StdDev |  Gen 0 | Allocated |
-|----------------- |------ |-----------:|----------:|----------:|-------:|----------:|
-| ToStringOriginal | Test1 | 26.8338 ns | 0.3286 ns | 0.3073 ns | 0.0029 |      24 B |
-|     ToStringFast | Test1 |  0.7085 ns | 0.0095 ns | 0.0089 ns |      - |         - |
+|           Method |       Mean |     Error |    StdDev |  Gen 0 | Code Size | Allocated |
+|----------------- |-----------:|----------:|----------:|-------:|----------:|----------:|
+| ToStringOriginal | 27.7916 ns | 0.2821 ns | 0.2639 ns | 0.0029 |     107 B |      24 B |
+|     ToStringFast |  0.7236 ns | 0.0084 ns | 0.0078 ns |      - |     181 B |         - |
 
 ## License
 <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fpetarpetrovt%2Ffast-enum-string?ref=badge_large">
