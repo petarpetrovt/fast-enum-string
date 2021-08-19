@@ -1,0 +1,56 @@
+﻿name: Build and test
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**.md'
+      - '**.png'
+      - '**.editorconfig'
+      - '**.csv'
+      - '**codeql-analysis.yml'
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - '**.md'
+      - '**.png'
+      - '**.editorconfig'
+      - '**.csv'
+      - '**codeql-analysis.yml'
+jobs:
+  test:
+    name: Test on `${{ matrix.options.os }}`
+    runs-on: ${{ matrix.options.os }}
+    strategy:
+      matrix:
+        options:
+          - os: ubuntu-latest
+            codecov: true
+          - os: windows-latest
+            codecov: false
+          - os: macos-latest
+            codecov: false
+    steps:
+     - name: Checkout
+       uses: actions/checkout@v2.3.4
+
+     - name: Setup dotnet SDK required for build (global.json)
+       uses: actions/setup-dotnet@v1.8.1
+
+     - name: Publish tests
+       run: dotnet publish "test/FastEnumString.Tests/FastEnumString.Tests.csproj" -o ".deploy/FastEnumString.Tests" -c "Release"
+
+     - name: Run tests with code coverage
+       if: ${{ matrix.options.codecov }}
+       run: dotnet vstest ".deploy/FastEnumString.Tests/FastEnumString.Tests.dll" --collect:"XPlat code coverage" --settings:".runsettings" --ResultsDirectory:".deploy/FastEnumString.Tests/TestResults"
+
+     - name: Run tests without code coverage
+       if: ${{ !matrix.options.codecov }}
+       run: dotnet vstest ".deploy/FastEnumString.Tests/FastEnumString.Tests.dll" --settings:".runsettings" --ResultsDirectory:".deploy/FastEnumString.Tests/TestResults"
+
+     - name: Update codecov
+       if: ${{ matrix.options.codecov }}
+       uses: codecov/codecov-action@v1
+       with:
+         token: ${{ secrets.CODECOV_TOKEN }}
