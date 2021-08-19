@@ -56,6 +56,23 @@ public static class TestEnum_FastEnumString
 }
 ```
 
+## Benchmarks
+
+``` ini
+
+BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19043.1165 (21H1/May2021Update)
+AMD Ryzen 7 3700X, 1 CPU, 16 logical and 8 physical cores
+.NET SDK=5.0.400
+  [Host]     : .NET 5.0.9 (5.0.921.35908), X64 RyuJIT
+  DefaultJob : .NET 5.0.9 (5.0.921.35908), X64 RyuJIT
+
+
+```
+|           Method | Value |       Mean |     Error |    StdDev |  Gen 0 | Allocated |
+|----------------- |------ |-----------:|----------:|----------:|-------:|----------:|
+| ToStringOriginal | Test1 | 26.8338 ns | 0.3286 ns | 0.3073 ns | 0.0029 |      24 B |
+|     ToStringFast | Test1 |  0.7085 ns | 0.0095 ns | 0.0089 ns |      - |         - |
+
 ## License
 <a href="https://app.fossa.com/projects/git%2Bgithub.com%2Fpetarpetrovt%2Ffast-enum-string?ref=badge_large">
   <img alt="License" src="https://app.fossa.com/api/projects/git%2Bgithub.com%2Fpetarpetrovt%2Ffast-enum-string.svg?type=large" />

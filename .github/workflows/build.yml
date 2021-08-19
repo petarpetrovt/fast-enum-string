@@ -25,9 +25,9 @@ jobs:
     strategy:
       matrix:
         options:
-          - os: ubuntu-latest
-            codecov: true
           - os: windows-latest
+            codecov: true
+          - os: ubuntu-latest
             codecov: false
           - os: macos-latest
             codecov: false
