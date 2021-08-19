@@ -5,7 +5,7 @@
 		<AssemblyName>FastEnumString</AssemblyName>
 		<RootNamespace>FastEnumString</RootNamespace>
 		<PackageTags>enum;enumeration;string;source;generator;</PackageTags>
-		<Description>A source generator for generating faster `ToStringFast` extension method for an enumeration.</Description>
+		<Description>A source generator for generating a faster `ToStringFast` extension method for an enumeration.</Description>
 		<PackageLicenseFile></PackageLicenseFile>
 		<DevelopmentDependency>true</DevelopmentDependency>
 		<IsPackable>true</IsPackable>
