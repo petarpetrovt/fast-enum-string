@@ -96,7 +96,7 @@ $@"namespace {namespaceName}
 			{{
 {string.Join(Environment.NewLine, switchCases)}
 				default:
-					throw new System.ArgumentException($""Value `{{value}}` of enum `{enumName}` is not supported in this context."", nameof(value));
+					throw new System.ArgumentException($""{enumName} value `{{value}}` is not supported in this context."", nameof(value));
 			}}
 		}}
 	}}
