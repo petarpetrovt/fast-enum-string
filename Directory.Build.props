@@ -1,0 +1,24 @@
+﻿<Project>
+
+	<PropertyGroup>
+		<Product>FastEnumString</Product>
+		<Company>SharpPTP</Company>
+		<Authors>SharpPTP and contributors</Authors>
+		<Copyright>Copyright © 2018-2022, SharpPTP</Copyright>
+		<RepositoryUrl>https://github.com/petarpetrovt/fast-enum-string</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/petarpetrovt/fast-enum-string</PackageProjectUrl>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<NeutralLanguage>en</NeutralLanguage>
+		<AnalysisLevel>latest</AnalysisLevel>
+		<LangVersion>9.0</LangVersion>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<VersionPrefix>0.1.0</VersionPrefix>
+		<VersionSuffix>alpha</VersionSuffix>
+	</PropertyGroup>
+
+</Project>

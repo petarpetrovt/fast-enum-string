@@ -1,0 +1,7 @@
+﻿/.vs
+/.vscode
+/*.suo
+/.deploy
+bin/
+obj/
+*.user
