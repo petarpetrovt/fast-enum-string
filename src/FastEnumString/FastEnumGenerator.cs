@@ -74,29 +74,26 @@
 
 		#endregion
 
-		private static string GenerateSource(INamedTypeSymbol symbol)
+		private static string GenerateSource(INamedTypeSymbol enumSymbol)
 		{
-			string namespaceName = symbol.ContainingNamespace.ToDisplayString();
-			string enumName = symbol.Name;
-
-			string[] switchCases = symbol
+			string[] switchCases = enumSymbol
 				.GetMembers()
 				.Where(x => x.Kind == SymbolKind.Field)
-				.Select(x => $"				case {enumName}.{x.Name}: return nameof({enumName}.{x.Name});")
+				.Select(x => $"				case {enumSymbol.Name}.{x.Name}: return nameof({enumSymbol.Name}.{x.Name});")
 				.ToArray();
 
 			return
-$@"namespace {namespaceName}
+$@"namespace {enumSymbol.ContainingNamespace.ToDisplayString()}
 {{
-	public static class {enumName}_FastEnumString
+	{enumSymbol.DeclaredAccessibility.ToString().ToLowerInvariant()} static class {enumSymbol.Name}_FastEnumString
 	{{
-		public static string ToStringFast(this {enumName} value)
+		public static string ToStringFast(this {enumSymbol.Name} value)
 		{{
 			switch(value)
 			{{
 {string.Join(Environment.NewLine, switchCases)}
 				default:
-					throw new System.ArgumentException($""{enumName} value `{{value}}` is not supported in this context."", nameof(value));
+					throw new System.ArgumentException($""{enumSymbol.Name} value `{{value}}` is not supported in this context."", nameof(value));
 			}}
 		}}
 	}}
