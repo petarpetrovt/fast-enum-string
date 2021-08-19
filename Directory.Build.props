@@ -21,4 +21,8 @@
 		<!--<VersionSuffix>alpha</VersionSuffix>-->
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<DebugType Condition="'$(codecov)' != ''">full</DebugType>
+	</PropertyGroup>
+
 </Project>
