@@ -1,11 +1,14 @@
 ﻿namespace FastEnumString.Benchmarks
 {
 	using BenchmarkDotNet.Attributes;
+	using BenchmarkDotNet.Jobs;
 
+	[SimpleJob(RuntimeMoniker.Net50)]
+	[SimpleJob(RuntimeMoniker.Net60)]
 	[MemoryDiagnoser, MarkdownExporter, DisassemblyDiagnoser(exportHtml: true)]
-	public class FastEnumStringBenchmark
+	public class LargeEnumBenchmark
 	{
-		public TestEnum Value { get; set; }
+		public LargeEnum Value { get; set; }
 
 		[Benchmark]
 		public string ToStringOriginal()

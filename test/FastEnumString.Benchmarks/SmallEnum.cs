@@ -1,6 +1,6 @@
 ﻿namespace FastEnumString.Benchmarks
 {
-	public enum TestEnum
+	public enum SmallEnum
 	{
 		Test1,
 		Test2,
