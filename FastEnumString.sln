@@ -23,7 +23,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0123C6BA-D116-4C85-BDDB-C37EA0400BFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastEnumString.Tests", "test\FastEnumString.Tests\FastEnumString.Tests.csproj", "{96ED3B21-C835-45F0-BBC9-F1E327F20147}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastEnumString.Tests", "test\FastEnumString.Tests\FastEnumString.Tests.csproj", "{96ED3B21-C835-45F0-BBC9-F1E327F20147}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{87433EC3-6C63-4C8F-AC42-B66798B4BA29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{D8838B88-99A7-462B-AAEB-279FF56B53E2}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,6 +53,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{7295C7CD-2D1B-4EC8-9505-32FFCF40AE79} = {B78BBD29-46FB-4AF8-BABB-0F6E43B2F8A8}
 		{96ED3B21-C835-45F0-BBC9-F1E327F20147} = {0123C6BA-D116-4C85-BDDB-C37EA0400BFA}
+		{D8838B88-99A7-462B-AAEB-279FF56B53E2} = {87433EC3-6C63-4C8F-AC42-B66798B4BA29}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92D325AF-0DE6-4176-B18C-1407A4154DBD}
