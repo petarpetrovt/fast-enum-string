@@ -1,0 +1,43 @@
+﻿name: "CodeQL"
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - '**.md'
+      - '**.png'
+      - '**.editorconfig'
+      - '**.csv'
+      - '**build.yml'
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - '**.md'
+      - '**.png'
+      - '**.editorconfig'
+      - '**.csv'
+      - '**build.yml'
+  schedule:
+    - cron: '25 0 * * 2'
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup dotnet SDK (global.json)
+      uses: actions/setup-dotnet@v1.7.2
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: 'csharp'
+
+    - name: Build
+      run: dotnet build "src/FastEnumString/FastEnumString.csproj" -c "Release" -f "net5.0"
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
