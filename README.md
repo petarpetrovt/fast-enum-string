@@ -26,7 +26,7 @@ FastEnumString
     </a>
 </p>
 
-Source generator for generating `ToStringFast` extension method.
+A source generator for generating `ToStringFast` extension method.
 
 ### Enum declaration:
 
